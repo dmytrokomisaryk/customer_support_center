@@ -1,0 +1,30 @@
+$background-with-opacity: rgba(255, 255, 255, 0.8);
+
+html {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+    background-image: image-url('support-bg.jpg');
+    background-attachment: fixed;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.wrapper {
+  min-height: 100%;
+  .support-form, .login-form {
+    background: $background-with-opacity;
+  }
+}
+
+.presentation-text {
+  color: white;
+}
+
+textarea {
+  resize: none;
+}

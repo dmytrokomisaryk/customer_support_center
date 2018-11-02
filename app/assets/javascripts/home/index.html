@@ -1,0 +1,38 @@
+<div class="wrapper">
+  <nav id="main-navbar" class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" ng-href="{{vm.signedIn() ? '#/tickets' : '/'}}">Customer Support Center</a>
+      </div>
+
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav navbar-right">
+          <li ng-hide="vm.signedIn()"><a ui-sref="home.login">Staff area</a></li>
+          <li ng-show="vm.signedIn()" class="disabled"><a>Signed in <i class="fa fa-user" aria-hidden="true"></i> : {{ user.email }}</a></li>
+          <li ng-show="vm.signedIn()"><a href="" ng-click="vm.logout()">Log Out</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <div id="main-container" class="container">
+    <ui-view id="main-ui-view">
+      <div class="text-center presentation-text">
+        <h2>Welcome to CSC. Thank You For Using Our Service!</h2>
+        <br/>
+        <h3>Do You Need People to Support You?</h3>
+        <br/>
+        <a ui-sref="home.ticket" class="btn btn-primary btn-lg">Contact us</a>
+        <br/>
+        <h3>And We Will Back to You As Soon As Possible.</h3>
+        <br/>
+        <h4>Note! We are working 24/7.</h4>
+      </div>
+    </ui-view>
+  </div>
+</div>

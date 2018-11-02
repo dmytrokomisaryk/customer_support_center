@@ -1,0 +1,15 @@
+# == Schema Information
+#
+# Table name: feedbacks
+#
+#  id         :integer      not null, primary key
+#  ticket_id  :integer      not null
+#  user_id    :integer      not null
+#  message    :text         not null
+#
+
+first:
+  ticket: first
+  user: first
+  message: Everything will be great!
+

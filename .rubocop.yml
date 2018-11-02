@@ -1,0 +1,15 @@
+AllCops:
+  Exclude:
+    - 'db/**/*'
+    - 'bin/**/*'
+    - 'config/locales/*'
+    - test/test_helper.rb
+    - Rakefile
+    - config/initializers/*
+    - config/environments/*
+
+Style/Documentation:
+  Enabled: false
+Style/StringLiterals:
+  Exclude:
+    - test/**/*

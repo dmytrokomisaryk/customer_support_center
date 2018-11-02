@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-md-8 col-md-offset-2">
+    <flash-message name="flash-fixed"></flash-message>
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon1">
+        <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+      </span>
+      <input type="text" class="form-control" placeholder="Search: author, subject, message, reference" aria-describedby="basic-addon1" ng-model="vm.filter.query" ng-change="vm.search()">
+    </div>
+    <br/>
+    <div class="btn-group" role="group" aria-label="Basic example">
+      <button type="button" class="btn btn-default" ng-class="{'active':vm.filter.state===''}" ng-click="vm.filter.state='';vm.search()">All</button>
+      <button type="button" class="btn btn-default" ng-class="{'active':vm.filter.state==='pending'}" ng-click="vm.filter.state='pending';vm.search()">Unread</button>
+    </div>
+    <hr/>
+    <div class="list-group">
+      <div class="list-group-item" ng-repeat="ticket in vm.tickets">
+        <label>{{ticket.sender_name}} <small class="label label-default">author</small><small>, {{ticket.reference}}, {{ticket.created_at | date:'shortDate'}}</small></label>
+        <h4 class="list-group-item-heading">{{ticket.subject}}</h4>
+        <p class="list-group-item-text">{{ticket.message}}</p>
+        <br/>
+        <a ng-click="vm.reply(ticket)" ng-show="ticket.state=='pending'" class="btn btn-xs btn-primary">
+          <span class="glyphicon glyphicon-share-alt" aria-hidden="true"></span>
+          Reply
+        </a>
+        <small class="label label-success" ng-show="ticket.state=='replied'">replied</small>
+      </div>
+      <ul class="pagination" ng-hide="vm.pages<=1">
+        <li>
+          <a ng-hide="+vm.filter.page-1<1" ng-click="vm.filter.page=+vm.filter.page-1;vm.search()" aria-label="Previous">
+            <span aria-hidden="true">&laquo;</span>
+          </a>
+        </li>
+        <li ng-click="vm.filter.page=i+1;vm.search()" ng-repeat="i in vm.pages | range" ng-class="{'active':+vm.filter.page===i+1}">
+          <a href="" >{{i+1}}</a>
+        </li>
+        <li>
+          <a ng-show="+vm.filter.page < +vm.pages" ng-click="vm.filter.page=+vm.filter.page+1;vm.search()" aria-label="Next">
+            <span aria-hidden="true">&raquo;</span>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

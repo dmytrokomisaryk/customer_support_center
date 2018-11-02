@@ -1,0 +1,14 @@
+{
+  "vendor": {
+    "name": "bower-rails generated vendor assets",
+    "dependencies": {
+      "angular" : "v1.7.2",
+      "angular-ui-router" : "latest",
+      "angular-devise": "latest",
+      "angular-messages": "latest",
+      "angular-resource": "latest",
+      "angular-cookies": "latest",
+      "angular-flash-alert": "latest"
+    }
+  }
+}

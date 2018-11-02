@@ -1,0 +1,20 @@
+<div class="row feedback">
+  <div class="col-md-8 col-md-offset-2 presentation-text">
+    <h2>{{selectedTicket.reference}}</h2>
+    <h3 class="media-heading">{{selectedTicket.subject}}</h3>
+    <h5>{{selectedTicket.message}}</h5>
+    <br/>
+    <form ng-submit="vm.submit()">
+      <input type="hidden" name="ticket_id" ng-init="vm.feedback.ticket_id=selectedTicket.id;" ng-value="selectedTicket.id"/>
+      <input type="hidden" name="user_id" ng-init="vm.feedback.user_id=user.id;" ng-value="user.id"/>
+      <div class="form-group">
+        <label>Your message:</label>
+        <textarea class="form-control" rows="5" required="required" placeholder="Your message" ng-model="vm.feedback.message"></textarea>
+      </div>
+      <div class="text-center">
+        <input class="btn btn-primary" type="submit" value="Reply">
+        <a class="btn btn-danger" ui-sref="home.tickets">Cancel</a>
+      </div>
+    </form>
+  </div>
+</div>
